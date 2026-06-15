@@ -1,0 +1,6 @@
+| HttpResponse                 | JsonResponse                              |
+| ---------------------------- | ----------------------------------------- |
+| Sends text or HTML           | Sends JSON data                           |
+| Used for normal web pages    | Used for AJAX, APIs, JavaScript           |
+| Browser displays it directly | JavaScript reads and processes it         |
+| Can return `"Hello"` or HTML | Returns objects like `{"name":"Shamshu"}` |
