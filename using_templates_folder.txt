@@ -1,0 +1,72 @@
+Here using or creation of templates folder
+
+Method 1 (Recommended) 
+
+Create the templates folder outside the app, at the project level.
+
+Example:
+
+myproject/
+│
+├── manage.py
+├── myproject/
+│   ├── settings.py
+│   ├── urls.py
+│   └── ...
+│
+├── templates/
+│   ├── home.html
+│   ├── room.html
+│   └── base.html
+│
+└── chat/
+    ├── views.py
+    ├── models.py
+    └── ...
+
+Then in settings.py:
+
+import os
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+    },
+]
+
+This is the approach most beginners use and is good for small and medium projects.
+
+
+Method 2 (App-specific templates)
+
+Create the templates folder inside the app.
+
+Example:
+
+myproject/
+│
+├── manage.py
+├── myproject/
+│
+└── chat/
+    ├── templates/
+    │   └── chat/
+    │       ├── home.html
+    │       └── room.html
+    ├── views.py
+    ├── models.py
+    └── ...
+
+Notice the extra chat folder inside templates.
+
+You render it like this:
+
+return render(request, 'chat/home.html')
+
+Since APP_DIRS = True, Django automatically finds these templates.
+
+# NOTE:->
+-> if you are creating the single app use the method 1
+-> if you are creating the multiple apps use the method 2
