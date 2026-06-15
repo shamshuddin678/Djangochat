@@ -70,6 +70,7 @@
 
     <script>
       $(document).ready(function () {
+        {% comment %} Here setInterval means that repeats again and again {% endcomment %}
         setInterval(function () {
           $.ajax({
             type: "GET",
