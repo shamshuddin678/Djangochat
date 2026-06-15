@@ -70,7 +70,7 @@
 
     <script>
       $(document).ready(function () {
-        {% comment %} Here setInterval means that repeats again and again {% endcomment %}
+        // Here setInterval means that repeats again and again
         setInterval(function () {
           $.ajax({
             type: "GET",
@@ -156,7 +156,7 @@
   <script type="text/javascript">
     $(document).on("submit", "#post-form", function (e) {
       e.preventDefault();
-      {% comment %} Use jQuery to send a request to the server without refreshing the webpage. {% endcomment %}
+      // Use jQuery to send a request to the server without refreshing the webpage.
       $.ajax({
         type: "POST",
         url: "/send",
